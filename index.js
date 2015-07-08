@@ -37,6 +37,11 @@ var users = [
 	}
 ]
 
+// directing Express to the static HTML file
+app.get('/', function (req, res) {
+  res.sendFile(__dirname + '/public/views/index.html');
+});
+
 // find all users
 app.get('/users', function(req, res) {
 	res.json(users);
