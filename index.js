@@ -9,6 +9,9 @@ app.use(bodyParser.urlencoded({ extended: false }));
 // parse application/json 
 app.use(bodyParser.json());
 
+// serve js and css files from public folder
+app.use(express.static(__dirname + '/public'));
+
 // seed user data
 var users = [
 	{
