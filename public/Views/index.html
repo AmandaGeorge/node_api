@@ -8,16 +8,55 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
 
   <!-- custom styles -->
-  <link rel="stylesheet" type="text/css" href="styles/style.css">
+  <link rel="stylesheet" type="text/css" href="../styles/style.css">
 
   <title>Client for Node API</title>
 </head>
 <body>
   <div class="container" id="header">
-    
+    <h1>User Listing</h1>
+    <hr>
+    <form id="userForm">
+      <div class="col-sm-3 form-group">
+        <input class="form-control" id="username" placeholder="Username" autofocus>
+      </div>
+      <div class="col-sm-3 form-group">
+        <input class="form-control" id="firstname" placeholder="First Name">
+      </div>
+      <div class="col-sm-3 form-group">
+        <input class="form-control" id="lastname" placeholder="Last Name">
+      </div>
+      <div class="col-sm-3 form-group">
+        <input class="form-control" id="age" placeholder="Age">
+      </div>
+      <div class="form-group">
+          <input type="submit" class="btn btn-success" value="Add New User">
+        </div>
+    </form>
   </div>
   <br>
-  
+
+  <!-- One user -->
+  <div class="container">
+    <div class="col-sm-3">
+      <h4>Username</h4>
+    </div>
+    <div class="col-sm-3">
+      <h4>First Name</h4>
+    </div>
+    <div class="col-sm-3">
+      <h4>Last Name</h4>
+    </div>
+    <div class="col-sm-3">
+      <h4>Age</h4>
+    </div>
+  </div>
+  <!-- /One user -->
+
+  <hr>
+
+  <!-- Space for new users -->
+  <div class="container" id="userDisplay"></div>
 
   <!-- jquery -->
   <script type="text/javascript" src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
@@ -29,12 +68,23 @@
   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js"></script>
 
   <!-- custom script -->
-  <script type="text/javascript" src="scripts/script.js"></script>
+  <script type="text/javascript" src="../scripts/script.js"></script>
 
   <!-- underscore template -->
-  <script type="text/template" id="resultsTemplate">
+  <script type="text/template" id="userTemplate">
     <div class="container">
-      <%= content %>
+      <div class="col-sm-3">
+        <h4><%= username %></h4>
+      </div>
+      <div class="col-sm-3">
+        <h4><%= firstname %></h4>
+      </div>
+      <div class="col-sm-3">
+        <h4><%= lastname %></h4>
+      </div>
+      <div class="col-sm-3">
+        <h4><%= age %></h4>
+      </div>
     </div>
     <hr>
   </script>
