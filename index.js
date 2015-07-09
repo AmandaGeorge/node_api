@@ -1,3 +1,5 @@
+// SERVER-SIDE JAVASCRIPT
+
 var express = require('express');
 var app = express();
 var _ = require('underscore');

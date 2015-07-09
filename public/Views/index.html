@@ -14,42 +14,52 @@
 </head>
 <body>
   <div class="container" id="header">
-    <h1>User Listing</h1>
+    <h1>Directory of Awesome People</h1>
     <hr>
+    
+    <!-- new user form -->
     <form id="userForm">
-      <div class="col-sm-3 form-group">
+      <div class="col-sm-2 form-group">
         <input class="form-control" id="username" placeholder="Username" autofocus>
       </div>
-      <div class="col-sm-3 form-group">
+      <div class="col-sm-2 form-group">
         <input class="form-control" id="firstname" placeholder="First Name">
       </div>
-      <div class="col-sm-3 form-group">
+      <div class="col-sm-2 form-group">
         <input class="form-control" id="lastname" placeholder="Last Name">
       </div>
-      <div class="col-sm-3 form-group">
+      <div class="col-sm-2 form-group">
         <input class="form-control" id="age" placeholder="Age">
       </div>
       <div class="form-group">
           <input type="submit" class="btn btn-success" value="Add New User">
         </div>
     </form>
+
   </div>
   <br>
+  <hr>
 
   <!-- One user -->
   <div class="container">
-    <div class="col-sm-3">
+    <div class="col-sm-2">
       <h4>Username</h4>
     </div>
-    <div class="col-sm-3">
+    <div class="col-sm-2">
       <h4>First Name</h4>
     </div>
-    <div class="col-sm-3">
+    <div class="col-sm-2">
       <h4>Last Name</h4>
     </div>
-    <div class="col-sm-3">
+    <div class="col-sm-2">
       <h4>Age</h4>
     </div>
+    <!-- <div class="col-sm-2">
+      <a data-id="id" href="#" class="btn btn-default edit-user-button">Edit User</a>
+    </div>
+    <div class="col-sm-2">
+      <a data-id="id" href="#" class="btn btn-default delete-user-button">Delete User</a>
+    </div> -->
   </div>
   <!-- /One user -->
 
@@ -73,17 +83,23 @@
   <!-- underscore template -->
   <script type="text/template" id="userTemplate">
     <div class="container">
-      <div class="col-sm-3">
+      <div class="col-sm-2">
         <h4><%= username %></h4>
       </div>
-      <div class="col-sm-3">
+      <div class="col-sm-2">
         <h4><%= firstname %></h4>
       </div>
-      <div class="col-sm-3">
+      <div class="col-sm-2">
         <h4><%= lastname %></h4>
       </div>
-      <div class="col-sm-3">
+      <div class="col-sm-2">
         <h4><%= age %></h4>
+      </div>
+      <div class="col-sm-2">
+        <a data-id="<%= id %>" href="#" class="btn btn-default edit-user-button">Edit User</a>
+      </div>
+      <div class="col-sm-2">
+        <a data-id="<%= id %>" href="#" class="btn btn-default delete-user-button">Delete User</a>
       </div>
     </div>
     <hr>
