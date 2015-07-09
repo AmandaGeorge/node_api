@@ -5,14 +5,12 @@ var app = express();
 var _ = require('underscore');
 var bodyParser = require('body-parser');
 
-// parse application/x-www-form-urlencoded 
-app.use(bodyParser.urlencoded({ extended: false }));
- 
-// parse application/json 
-app.use(bodyParser.json());
-
 // serve js and css files from public folder
 app.use(express.static(__dirname + '/public'));
+
+// parse application/x-www-form-urlencoded 
+app.use(bodyParser.urlencoded({ extended: true }));
+
 
 // seed user data
 var users = [
@@ -39,6 +37,7 @@ var users = [
 	}
 ]
 
+// ROUTES
 // directing Express to the static HTML file
 app.get('/', function (req, res) {
   res.sendFile(__dirname + '/public/views/index.html');
@@ -70,7 +69,17 @@ app.get('/users/un/:username', function(req, res) {
 // add a new user
 app.post('/users', function(req, res) {
 	var newUser = req.body;
+	
+	// assign an ID to the new user
+	if (users.length > 0) {
+		newUser.id = users[users.length -1].id + 1;
+	} else {
+		newUser.id = 0;
+	}
+
+	// add the new user to the users array
 	users.push(newUser);
+
 	res.json(newUser);
 });
 
@@ -120,19 +129,6 @@ app.delete('/users/:id', function(req, res) {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-app.listen(1234);
+app.listen(1234, function() {
+	console.log('server started on localhost:1234');
+});
